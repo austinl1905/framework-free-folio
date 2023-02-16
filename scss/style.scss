@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto&display=swap');
 
-$background-color-1: RGB(96, 32, 223);
+$background-color-1: RGB(60, 0, 200);
 $background-color-2: RGB(32, 159, 223);
+$background-color-3: RGB(55, 55, 55);
+$panel-color-1: white;
+$panel-color-2: RGB(200, 200, 200);
+$panel-color-3: RGB(25, 165, 160);
+$panel-color-4: RGB(0, 155, 100);
 $font-1: 'Open Sans', sans-serif;
 $font-2: 'Roboto', sans-serif;
 
@@ -11,8 +16,19 @@ $font-2: 'Roboto', sans-serif;
     margin-right: auto;
 }
 
+@mixin border-1 {
+    border: 2.5px solid black;
+}
+
 body {
-    background-color: $background-color-2;
+    background-color: $background-color-3;
+    background: linear-gradient(360deg, rgba(55,55,55,1) 0%, rgba(9,9,121,1) 50%, rgba(100,200,215,1) 100%);
+
+    h2 {
+        text-align: center;
+        font-family: $font-1;
+        color: white;
+    }
 }
 
 #header {
@@ -33,22 +49,83 @@ body {
     }
 }
 
-#container {
+#container-1 {
+    margin: 50px;
     width: 75%;
+    height: 260px;
+    display: grid;
     @include content-center;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 60px 200px;
+    column-gap: 50px;
+
+    .text-container {
+        grid-row: 1/2;
+        text-align: center;
+        font-family: $font-2;
+        @include border-1;
+        border-radius: 5px 5px 0px 0px;
+        border-bottom-style: none;
+        background-color: $panel-color-2;
+        font-weight: bold;
+    }
+}
+
+@mixin card-properties {
+    font-family: $font-1;
+    text-align: center;
+    grid-row: 2/3;
+    @include border-1;
+    border-radius: 0px 0px 5px 5px;
 }
 
 @for $i from 1 through 3 {
-    .card-#{$i}{
-        background-color: $panel-color-1;
+    #container-1 {
+        .card-#{$i}{
+            background-color: $panel-color-1;
+            color: white;
+            @include card-properties;
+        }
+    }
+}
+
+#container-2 {
+    width: 90%;
+    @include content-center;
+    display: grid;
+    height: 260px;
+    grid-template-columns: repeat(2, 1fr) 50px 2fr;
+    grid-template-rows: 60px 200px;
+    gap: 5px;
+
+    .text-container {
+        grid-row: 1/2;
+        text-align: center;
+        font-family: $font-2;
+        @include border-1;
+        background-color: $panel-color-4;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .card-3 {
+        grid-column: 4/5;
+        grid-row: 1/3;
+        @include border-1;
+        border-radius: 5px;
         font-family: $font-1;
         text-align: center;
-        padding: 10px;
+        background-color: $panel-color-3;
+    }
+}
 
-        h4 {
-            margin-top: 0px;
-            margin-bottom: 10px;
+@for $j from 1 through 2 {
+    #container-2 {
+        .card-#{$j}{
+            @include card-properties;
+            background-color: $panel-color-3;
+            color: white;
+            border-radius: 5px;
         }
     }
 }
