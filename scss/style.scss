@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto&display=swap');
 
 $background-color-1: RGB(100, 0, 200);
-$background-color-2: RGB(32, 159, 223);
 $background-color-3: RGB(55, 55, 55);
 $panel-color-1: RGB(255, 255, 255);
 $panel-color-2: RGB(200, 200, 200);
@@ -21,6 +20,11 @@ $font-2: 'Roboto', sans-serif;
 body {
     background-color: $background-color-3;
     background: linear-gradient(to top right,rgba(55,55,55,1) 70%,rgba(9,9,121,1) 80%, rgba(100,200,215,1) 90%, rgba(255,255,255,1));
+    min-height: 100vh;
+    margin: 0;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
 
     h2 {
         text-align: center;
@@ -70,7 +74,7 @@ body {
 }
 
 @mixin card-properties {
-    font-family: $font-1;
+    font-family: $font-2;
     text-align: center;
     grid-row: 2/3;
     @include border-1;
@@ -115,6 +119,12 @@ body {
         font-family: $font-1;
         text-align: center;
         background-color: $panel-color-1;
+        padding: 5px;
+
+        p {
+            font-family: $font-2;
+            line-height: 1.75;
+        }
     }
 }
 
@@ -160,5 +170,20 @@ body {
                 color: white;
             }
         }
+    }
+}
+
+#footer {
+    min-height: 125px;
+    max-height: 125px;
+    background-color: $background-color-1;
+    padding: 30px;
+
+    p {
+        text-align: center;
+        color: white;
+        font-family: $font-2;
+        font-weight: bold;
+        font-size: 20px;
     }
 }
