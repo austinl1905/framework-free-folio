@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto&display=swap');
 
-$background-color-1: RGB(60, 0, 200);
+$background-color-1: RGB(100, 0, 200);
 $background-color-2: RGB(32, 159, 223);
 $background-color-3: RGB(55, 55, 55);
-$panel-color-1: white;
+$panel-color-1: RGB(255, 255, 255);
 $panel-color-2: RGB(200, 200, 200);
-$panel-color-3: RGB(25, 165, 160);
-$panel-color-4: RGB(0, 155, 100);
 $font-1: 'Open Sans', sans-serif;
 $font-2: 'Roboto', sans-serif;
 
@@ -22,7 +20,7 @@ $font-2: 'Roboto', sans-serif;
 
 body {
     background-color: $background-color-3;
-    background: linear-gradient(360deg, rgba(55,55,55,1) 0%, rgba(9,9,121,1) 50%, rgba(100,200,215,1) 100%);
+    background: linear-gradient(to top right,rgba(55,55,55,1) 70%,rgba(9,9,121,1) 80%, rgba(100,200,215,1) 90%, rgba(255,255,255,1));
 
     h2 {
         text-align: center;
@@ -94,6 +92,7 @@ body {
     @include content-center;
     display: grid;
     height: 260px;
+    margin: 50px;
     grid-template-columns: repeat(2, 1fr) 50px 2fr;
     grid-template-rows: 60px 200px;
     gap: 5px;
@@ -103,7 +102,7 @@ body {
         text-align: center;
         font-family: $font-2;
         @include border-1;
-        background-color: $panel-color-4;
+        background-color: $panel-color-2;
         border-radius: 5px;
         font-weight: bold;
     }
@@ -115,7 +114,7 @@ body {
         border-radius: 5px;
         font-family: $font-1;
         text-align: center;
-        background-color: $panel-color-3;
+        background-color: $panel-color-1;
     }
 }
 
@@ -123,9 +122,43 @@ body {
     #container-2 {
         .card-#{$j}{
             @include card-properties;
-            background-color: $panel-color-3;
+            background-color: $panel-color-1;
             color: white;
             border-radius: 5px;
+        }
+    }
+}
+
+#container-3 {
+    display: grid;
+    width: 60%;
+    margin: 50px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 150px, 75px;
+    gap: 80px;
+    @include content-center;
+    height: 225px;
+    justify-content: space-evenly;
+    justify-items: center;
+}
+
+@for $k from 1 through 4 {
+    #container-3 {
+        .card-#{$k}{
+            font-family: $font-1;
+            grid-row: 1/2;
+
+            img {
+                height: 150px;
+                width: 150px;
+                border: 5px solid black;
+                border-radius: 50%;
+            }
+
+            p {
+                text-align: center;
+                color: white;
+            }
         }
     }
 }
