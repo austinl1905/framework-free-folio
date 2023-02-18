@@ -203,7 +203,7 @@ body {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) and (min-width: 800px) {
     #container-1 {
         grid-template-columns: repeat(7, 1fr);
         grid-template-rows: 60px 200px 60px 200px;
@@ -249,8 +249,4 @@ body {
             font-size: 2vw;
         }
     }
-}
-
-* {
-    border-style: dashed;
 }
