@@ -8,6 +8,8 @@ $panel-color-2: RGB(200, 200, 200);
 $font-1: 'Open Sans', sans-serif;
 $font-2: 'Roboto', sans-serif;
 
+$font-size-s: 11px;
+
 @mixin content-center {
     margin-left: auto;
     margin-right: auto;
@@ -143,7 +145,7 @@ body {
         p {
             font-family: $font-2;
             line-height: 1.75;
-            font-size: 1vw;
+            font-size: 12px;
         }
     }
 }
@@ -231,6 +233,7 @@ body {
                 font-size: 12px !important;
             }
         }
+    }
 
     #container-1 {
         grid-template-columns: repeat(3, 1fr) repeat(2, 0.5fr) repeat(3, 1fr);
@@ -281,7 +284,6 @@ body {
             }
         }
     }
-}
 
 @media screen and (max-width: 900px) {
 
@@ -291,7 +293,6 @@ body {
         height: 780px;
         width: 60vw;
         @include content-center;
-        position: relative;
 
         .text-container-1 {
             grid-column: 1/2;
@@ -364,6 +365,104 @@ body {
         .card-4 {
             grid-column: 2/3;
             grid-row: 2/3;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 500px) {
+    h2 {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h2 {
+        width: 80%;
+    }
+
+    #header {
+        height: 150px;
+    }
+
+    #container-1 {
+        width: 90%;
+    }
+
+    @for $i from 1 through 3 {
+        #container-1 {
+            .card-#{$i}{
+                font-size: $font-size-s !important;
+            }
+        }
+    }
+
+    @for $i from 1 through 3 {
+        #container-2 {
+            .card-#{$i}{
+                font-size: $font-size-s !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 410px) {
+    h2 {
+        width: 80%;
+    }
+
+    #header {
+        height: 175px !important;
+    }
+
+    #filler {
+        height: 175px !important;
+    }
+
+
+    #container-2 {
+        grid-template-rows: 60px 200px 60px 200px 260px;
+        grid-template-columns: auto;
+        height: 780px;
+
+        .text-container-1 {
+            grid-row: 1/2;
+            grid-column: 1/2;
+        }
+
+        .card-1 {
+            grid-row: 2/3;
+            grid-column: 1/2;
+        }
+
+        .text-container-2 {
+            grid-row: 3/4;
+            grid-column: 1/2;
+        }
+
+        .card-2 {
+            grid-row: 4/5;
+            grid-column: 1/2;
+        }
+
+        .card-3 {
+            grid-row: 5/6;
+            grid-column: 1/2;
+        }
+    }
+
+    @for $i from 1 through 3 {
+        #container-1 {
+            .card-#{$i}{
+                font-size: $font-size-s !important;
+            }
+        }
+    }
+
+    @for $i from 1 through 3 {
+        #container-2 {
+            .card-#{$i}{
+                font-size: $font-size-s !important;
+            }
         }
     }
 }
